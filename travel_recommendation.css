@@ -120,11 +120,14 @@ article{
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
 
 }
+article.contact{
+    /* align-items: center; */
+    justify-content: center;
+}
 h2{
-    font-size: 4rem;
+    font-size: 3rem;
     animation: great-header 2s ease-out forwards;
 }
 @keyframes great-header{
@@ -144,6 +147,13 @@ article>p{
     line-height: 1.5rem;
     font-size: 1.3rem;
     animation: paragraph 2s ease-in-out forwards;
+    padding-top: 30px;
+}
+.about>p{
+    background-color: rgba(0, 0, 0, 0.4);
+    max-width: 75%;
+    padding: 30px;
+    border-radius: 15px;
 }
 @keyframes paragraph{
     0%{
@@ -154,6 +164,21 @@ article>p{
         opacity: 1;
         transform: translateY(0);
     }
+}
+article>button{
+    width: 120px;
+    height: 50px;
+    border-radius: 15px;
+    scale: .8;
+    background-color: rgb(159, 240, 9);
+    color: white;
+    transform: translateY(50px);
+    transition: all .3s ease;
+    font-weight: 700;
+}
+article>button:hover{
+    background-color: rgb(115, 175, 5);
+    scale: 1;
 }
 main>section{
     grid-column: 3;
@@ -177,6 +202,9 @@ main>section{
     font-size: 2rem;
 
 }
+h3{
+    font-size: 2rem;
+}
     
 .team>span{
     background-image: linear-gradient(to right, rgba(159, 240, 9), rgb(93, 139, 5));
@@ -186,4 +214,52 @@ main>section{
     min-width: 70px;
     border-radius: 30px;
     text-align: center;
+}
+form{
+    grid-column: 3;
+    text-align: center;
+    /* height: 70vh;
+    overflow-y: auto; */
+}
+fieldset{
+    /* margin-block: 20px; */
+    text-align: center;
+    border: none;
+    margin-top: 10px;
+}
+form label,
+form input,
+form button{
+    display: block;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 2rem;
+}
+form label{
+    letter-spacing: 10px;
+    font-size: 1.5rem;
+    color: rgb(109, 107, 107);
+    transition: all .3s ease;
+    transform: translateY(35px);
+}
+form input{
+    height: 40px;
+}
+form textarea{
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+form button{
+    background-color: rgb(115, 175, 5);
+    color: white;
+    font-size: 1rem;
+    padding-block: 10px;
+    cursor: pointer;
+}
+fieldset:focus-within label{
+    transform: translateY(0);
+    color: white;
 }
