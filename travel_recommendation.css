@@ -35,6 +35,28 @@ nav>ul{
     width: 40%;
     align-items: center;
 }
+
+li{
+    position: relative;
+}
+li.active::after,
+li:hover::after{
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: white;
+    bottom: 0;
+    left:0;
+    animation: underline 1s ease-in-out forwards;
+}
+@keyframes underline{
+    0%{
+        width: 0;
+    }
+    100%{
+        width:100%
+    }
+}
 h1{
     font-size: 2rem;
 }
@@ -106,12 +128,11 @@ aside{
     justify-content: center;
     margin-right: 30px;
     perspective: 1000px;
+    animation: paragraph 1.5s ease-in-out forwards;
 }
 aside>*{
     font-size: 35px;
     padding-block: 10px;
-    animation: great-header 2s ease-out forwards;
-
 }
 
 article{
@@ -164,6 +185,10 @@ article>p{
         opacity: 1;
         transform: translateY(0);
     }
+}
+main button,
+form{
+    animation: paragraph 2s ease-in-out forwards;
 }
 article>button{
     width: 120px;
@@ -263,3 +288,30 @@ fieldset:focus-within label{
     transform: translateY(0);
     color: white;
 }
+aside>a{
+    animation: socialMedia 1.5s ease-in-out infinite;
+    animation-play-state: paused;
+}
+aside>a:hover{
+    animation-play-state: running;
+}
+@keyframes socialMedia{
+    0%{
+        transform: scale(1) rotateY(0);
+    }
+    25%{
+        transform: scale(1.1) rotateY(45deg);
+    }
+    50%{
+        transform: scale(1.2) rotateY(0);
+    }
+    75%{
+        transform: scale(1.1) rotateY(-45deg);
+    }
+    100%{
+        transform: scale(1) rotateY(0);
+    }
+}
+
+
+
