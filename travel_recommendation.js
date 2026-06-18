@@ -34,10 +34,10 @@ function fetchData(){
                         para.innerHTML=city.description;
                         location.innerHTML = city.name;
                         const countryName = city.name.split(', ');
-                        const zone = timeZoneMap.[countryName[1]];
+                        const zone = timeZoneMap[countryName[1]];
                         const option={timeZone: zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
                         const timeZone = new Date().toLocaleTimeString('en-US', option);
-                        timeDiv.innerHTML=timeZone;
+                        timeDiv.innerHTML=`Time zone: ${timeZone}`;
                         card.appendChild(timeDiv);
                         card.appendChild(img);
                         card.appendChild(location);
@@ -60,10 +60,10 @@ function fetchData(){
                 para.innerHTML=temple.description;
                 location.innerHTML = temple.name;
                 const countryName = temple.name.split(', ');
-                const zone = timeZoneMap.[countryName[1]];
+                const zone = timeZoneMap[countryName[1]];
                 const option={timeZone:zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
                 const timeZone = new Date().toLocaleTimeString('en-US', option);
-                timeDiv.innerHTML=timeZone;
+                timeDiv.innerHTML=`Time zone: ${timeZone}`;
                 card.appendChild(timeDiv);
                 card.appendChild(img);
                 card.appendChild(location);
@@ -85,10 +85,10 @@ function fetchData(){
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
                 const countryName = beach.name.split(', ');
-                const zone = timeZoneMap.[countryName[1]];
+                const zone = timeZoneMap[countryName[1]];
                 const option={timeZone:zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
                 const timeZone = new Date().toLocaleTimeString('en-US', option);
-                timeDiv.innerHTML=timeZone;
+                timeDiv.innerHTML=`Time zone: ${timeZone}`;
                 card.appendChild(timeDiv);
                 card.appendChild(img);
                 card.appendChild(location);
