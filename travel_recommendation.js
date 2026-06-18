@@ -8,12 +8,22 @@ function fetchData(){
     .then(Response=>Response.json())
     .then(data=>{
         const inputSearch = input.value.trim().toLowerCase();
+        const timeZoneMap = {
+            "Australia": "Australia/Sydney",
+            "Japan": "Asia/Tokyo",
+            "Brazil": "America/Sao_Paulo",
+            "Cambodia": "Asia/Phnom_Penh",
+            "India": "Asia/Kolkata",
+            "French Polynesia": "Pacific/Tahiti"
+          };
         result.innerHTML="";
         if(inputSearch.includes('country') || inputSearch.includes('countries')){
             const countries = data.countries;
             for(const country of countries){
                 const cities = country.cities
                     for(const city of cities){
+                        const timeDiv = document.createElement('div');
+                        timeDiv.classList.add('timeDiv');
                         const card = document.createElement('div');
                         card.classList.add('card');
                         const img = document.createElement('img');
@@ -23,6 +33,12 @@ function fetchData(){
                         img.setAttribute('class',`imgCard`);
                         para.innerHTML=city.description;
                         location.innerHTML = city.name;
+                        const countryName = city.name.split(', ');
+                        const zone = timeZoneMap.[countryName[1]];
+                        const option={timeZone: zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
+                        const timeZone = new Date().toLocaleTimeString('en-US', option);
+                        timeDiv.innerHTML=timeZone;
+                        card.appendChild(timeDiv);
                         card.appendChild(img);
                         card.appendChild(location);
                         card.appendChild(para);
@@ -32,6 +48,8 @@ function fetchData(){
         }else if(inputSearch.includes('temple') || inputSearch.includes('temples')){
             const temples = data.temples;
             for(const temple of temples){
+                const timeDiv = document.createElement('div');
+                timeDiv.classList.add('timeDiv');
                 const card = document.createElement('div');
                 card.classList.add('card');
                 const img = document.createElement('img');
@@ -41,6 +59,12 @@ function fetchData(){
                 img.setAttribute('class',`imgCard`);
                 para.innerHTML=temple.description;
                 location.innerHTML = temple.name;
+                const countryName = temple.name.split(', ');
+                const zone = timeZoneMap.[countryName[1]];
+                const option={timeZone:zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
+                const timeZone = new Date().toLocaleTimeString('en-US', option);
+                timeDiv.innerHTML=timeZone;
+                card.appendChild(timeDiv);
                 card.appendChild(img);
                 card.appendChild(location);
                 card.appendChild(para);
@@ -49,6 +73,8 @@ function fetchData(){
         }else if(inputSearch.includes('beach') || inputSearch.includes('beaches')){
             const beaches = data.beaches;
             for(const beach of beaches){
+                const timeDiv = document.createElement('div');
+                timeDiv.classList.add('timeDiv');
                 const card = document.createElement('div');
                 card.classList.add('card');
                 const img = document.createElement('img');
@@ -58,6 +84,12 @@ function fetchData(){
                 img.setAttribute('class',`imgCard`);
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
+                const countryName = beach.name.split(', ');
+                const zone = timeZoneMap.[countryName[1]];
+                const option={timeZone:zone, hour12:true, hour: 'numeric', minute: 'numeric', second:'numeric'};
+                const timeZone = new Date().toLocaleTimeString('en-US', option);
+                timeDiv.innerHTML=timeZone;
+                card.appendChild(timeDiv);
                 card.appendChild(img);
                 card.appendChild(location);
                 card.appendChild(para);
