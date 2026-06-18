@@ -313,5 +313,8 @@ aside>a:hover{
     }
 }
 
+.result{
+    display: none;
+}
 
 
