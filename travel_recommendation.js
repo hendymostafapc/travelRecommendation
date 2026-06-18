@@ -24,8 +24,8 @@ function fetchData(){
                         para.innerHTML=city.description;
                         location.innerHTML = city.name;
                         card.appendChild(img);
-                        card.appendChild(para);
                         card.appendChild(location);
+                        card.appendChild(para);
                         result.appendChild(card);
                     }
                 }
@@ -42,8 +42,8 @@ function fetchData(){
                 para.innerHTML=temple.description;
                 location.innerHTML = temple.name;
                 card.appendChild(img);
-                card.appendChild(para);
                 card.appendChild(location);
+                card.appendChild(para);
                 result.appendChild(card);
             }
         }else if(inputSearch.includes('beach') || inputSearch.includes('beaches')){
@@ -59,8 +59,8 @@ function fetchData(){
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
                 card.appendChild(img);
-                card.appendChild(para);
                 card.appendChild(location);
+                card.appendChild(para);
                 result.appendChild(card);
             }
         }else{

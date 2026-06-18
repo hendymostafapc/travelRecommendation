@@ -333,14 +333,14 @@ aside>a:hover{
     flex-direction: column;
     align-items: center;
     width: 300px;
-    height: 300px;
+    height: 400px;
 }
 .imgCard{
-    width: 300px;
-    margin-bottom: 5px;
+    width: 100%;
+    height: 250px;
+    object-fit: fill;
 }
 .card>span{
-    margin-top: auto;
     display: inline-block;
     border-radius: 20px;
     background-color: rgba(159, 240, 9);
