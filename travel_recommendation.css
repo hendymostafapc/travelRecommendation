@@ -461,6 +461,7 @@ aside>a:hover{
     }
     .contact{
         gap: 0;
+        overflow: initial;
     }
     .contact>article{
         order: 1;
