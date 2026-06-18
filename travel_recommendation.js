@@ -80,6 +80,7 @@ function clear(){
     result.innerHTML="";
     result.style.display= "none";
     homeArticle.style.display= 'flex';
+    input.value=""
 }
 
 searchBtn.addEventListener('click',fetchData);
