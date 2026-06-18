@@ -9,7 +9,7 @@ function fetchData(){
     .then(data=>{
         const inputSearch = input.value.trim().toLowerCase();
         result.innerHTML="";
-        if(inputSearch.includes('beach') || inputSearch.includes('beaches')){
+        if(inputSearch.includes('country') || inputSearch.includes('countries')){
             const countries = data.countries;
             for(const country of countries){
                 const cities = country.cities
@@ -20,6 +20,7 @@ function fetchData(){
                         const para = document.createElement('p');
                         const location = document.createElement('span');
                         img.setAttribute('src',`./images/${city.imageUrl}`);
+                        img.setAttribute('class',`imgCard`);
                         para.innerHTML=city.description;
                         location.innerHTML = city.name;
                         card.appendChild(img);
@@ -37,6 +38,7 @@ function fetchData(){
                 const para = document.createElement('p');
                 const location = document.createElement('span');
                 img.setAttribute('src',`./images/${temple.imageUrl}`);
+                img.setAttribute('class',`imgCard`);
                 para.innerHTML=temple.description;
                 location.innerHTML = temple.name;
                 card.appendChild(img);
@@ -44,7 +46,7 @@ function fetchData(){
                 card.appendChild(location);
                 result.appendChild(card);
             }
-        }else if(inputSearch.includes('country') || inputSearch.includes('countries')){
+        }else if(inputSearch.includes('beach') || inputSearch.includes('beaches')){
             const beaches = data.beaches;
             for(const beach of beaches){
                 const card = document.createElement('div');
@@ -53,6 +55,7 @@ function fetchData(){
                 const para = document.createElement('p');
                 const location = document.createElement('span');
                 img.setAttribute('src',`images/${beach.imageUrl}`);
+                img.setAttribute('class',`imgCard`);
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
                 card.appendChild(img);
@@ -63,7 +66,7 @@ function fetchData(){
         }else{
             result.innerHTML=`No Results`;
         }
-        result.style.display= "block";
+        result.style.display= "grid";
         homeArticle.style.display= 'none';
     })
     .catch(error=>{

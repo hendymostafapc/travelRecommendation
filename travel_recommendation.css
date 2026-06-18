@@ -315,6 +315,15 @@ aside>a:hover{
 
 .result{
     display: none;
+    overflow:auto;
+    grid-column: 2/4;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card{
+    width: 40%;
+}
+.imgCard{
+    width: 100%;
 }
 
 
