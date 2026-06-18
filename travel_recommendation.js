@@ -54,7 +54,7 @@ function fetchData(){
                 const img = document.createElement('img');
                 const para = document.createElement('p');
                 const location = document.createElement('span');
-                img.setAttribute('src',`images/${beach.imageUrl}`);
+                img.setAttribute('src',`./images/${beach.imageUrl}`);
                 img.setAttribute('class',`imgCard`);
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
@@ -66,7 +66,7 @@ function fetchData(){
         }else{
             result.innerHTML=`No Results`;
         }
-        result.style.display= "grid";
+        result.style.display= "flex";
         homeArticle.style.display= 'none';
     })
     .catch(error=>{

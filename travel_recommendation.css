@@ -317,7 +317,8 @@ aside>a:hover{
     display: none;
     overflow:auto;
     grid-column: 2/4;
-    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
 }
 .card{
     width: 40%;
