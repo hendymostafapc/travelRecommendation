@@ -19,7 +19,7 @@ function fetchData(){
                         const img = document.createElement('img');
                         const para = document.createElement('p');
                         const location = document.createElement('span');
-                        img.setAttribute('src',city.imageUrl);
+                        img.setAttribute('src',`./images/${city.imageUrl}`);
                         para.innerHTML=city.description;
                         location.innerHTML = city.name;
                         card.appendChild(img);
@@ -36,7 +36,7 @@ function fetchData(){
                 const img = document.createElement('img');
                 const para = document.createElement('p');
                 const location = document.createElement('span');
-                img.setAttribute('src',temple.imageUrl);
+                img.setAttribute('src',`./images/${temple.imageUrl}`);
                 para.innerHTML=temple.description;
                 location.innerHTML = temple.name;
                 card.appendChild(img);
@@ -52,7 +52,7 @@ function fetchData(){
                 const img = document.createElement('img');
                 const para = document.createElement('p');
                 const location = document.createElement('span');
-                img.setAttribute('src',beach.imageUrl);
+                img.setAttribute('src',`images/${beach.imageUrl}`);
                 para.innerHTML=beach.description;
                 location.innerHTML = beach.name;
                 card.appendChild(img);
