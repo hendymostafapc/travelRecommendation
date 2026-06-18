@@ -66,7 +66,7 @@ function fetchData(){
         }else{
             result.innerHTML=`No Results`;
         }
-        result.style.display= "flex";
+        result.style.display= "grid";
         homeArticle.style.display= 'none';
     })
     .catch(error=>{
