@@ -1,60 +1,83 @@
-const result= document.querySelector('result');
-const inputSearch = document.querySelector('nav input').value.trim().toLowerCase();
+const result= document.querySelector('.result');
+const input = document.querySelector('.inputSearch');
+const searchBtn= document.querySelector('.searchBtn');
+const clearBtn= document.querySelector('.clear');
+const homeArticle = document.querySelector('.homeArticle');
 function fetchData(){
-    fetch('GET', 'travel_recommendation_api.json')
+    fetch('travel_recommendation_api.json')
     .then(Response=>Response.json())
     .then(data=>{
+        const inputSearch = input.value.trim().toLowerCase();
         result.innerHTML="";
-        const arr =['countr','beach', 'temple'];
-        const card = document.createElement('div');
-        if(inputSearch.includes(arr[0])){
-            const cities = data.countries.cities;
-            for(city of cities){
-                const card = document.createElement('div');
-                const img = document.createElement('img');
-                const para = document.createElement('p');
-                const location = document.createElement('span');
-                img.setAttribute('src',city.imageUrl);
-                para.innerHTML=city.description;
-                span.innerHTML = city.name;
-                card.appendChild(img);
-                card.appendChild(para);
-                card.appendChild(span);
-                result.appendChild(card);
-            }
-        }else if(inputSearch.includes(arr[1])){
+        if(inputSearch.includes('beach') || inputSearch.includes('beaches')){
+            const countries = data.countries;
+            for(const country of countries){
+                const cities = country.cities
+                    for(const city of cities){
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+                        const img = document.createElement('img');
+                        const para = document.createElement('p');
+                        const location = document.createElement('span');
+                        img.setAttribute('src',city.imageUrl);
+                        para.innerHTML=city.description;
+                        location.innerHTML = city.name;
+                        card.appendChild(img);
+                        card.appendChild(para);
+                        card.appendChild(location);
+                        result.appendChild(card);
+                    }
+                }
+        }else if(inputSearch.includes('temple') || inputSearch.includes('temples')){
             const temples = data.temples;
-            for(temple of temples){
+            for(const temple of temples){
                 const card = document.createElement('div');
+                card.classList.add('card');
                 const img = document.createElement('img');
                 const para = document.createElement('p');
                 const location = document.createElement('span');
                 img.setAttribute('src',temple.imageUrl);
                 para.innerHTML=temple.description;
-                span.innerHTML = temple.name;
+                location.innerHTML = temple.name;
                 card.appendChild(img);
                 card.appendChild(para);
-                card.appendChild(span);
+                card.appendChild(location);
                 result.appendChild(card);
-        }else if(inputSearch.includes(arr[2])){
+            }
+        }else if(inputSearch.includes('country') || inputSearch.includes('countries')){
             const beaches = data.beaches;
-            for(beach of beaches){
+            for(const beach of beaches){
                 const card = document.createElement('div');
+                card.classList.add('card');
                 const img = document.createElement('img');
                 const para = document.createElement('p');
                 const location = document.createElement('span');
                 img.setAttribute('src',beach.imageUrl);
                 para.innerHTML=beach.description;
-                span.innerHTML = beach.name;
+                location.innerHTML = beach.name;
                 card.appendChild(img);
                 card.appendChild(para);
-                card.appendChild(span);
+                card.appendChild(location);
                 result.appendChild(card);
+            }
         }else{
             result.innerHTML=`No Results`;
         }
+        result.style.display= "block";
+        homeArticle.style.display= 'none';
     })
     .catch(error=>{
-        result.innerHTML=`An error occurred while fetching data.`
+        result.innerHTML=`An error occurred while fetching data.`;
+        result.style.display= "block";
+        homeArticle.style.display= 'none';
     })
 }
+
+function clear(){
+    result.innerHTML="";
+    result.style.display= "none";
+    homeArticle.style.display= 'flex';
+}
+
+searchBtn.addEventListener('click',fetchData);
+clearBtn.addEventListener('click',clear);
